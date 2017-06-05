@@ -1,5 +1,6 @@
 package com.example.wzh.newstest.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.wzh.newstest.R;
+import com.example.wzh.newstest.utils.CacheUtils;
 import com.example.wzh.newstest.utils.DensityUtil;
 
 import java.util.ArrayList;
@@ -130,5 +132,9 @@ public class GuideActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_start_main)
     public void onViewClicked() {
+        CacheUtils.putBoolean(this,"start_main",true);
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

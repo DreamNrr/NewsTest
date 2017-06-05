@@ -11,6 +11,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 import com.example.wzh.newstest.activity.GuideActivity;
+import com.example.wzh.newstest.activity.MainActivity;
+import com.example.wzh.newstest.utils.CacheUtils;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -46,8 +48,14 @@ public class WelcomeActivity extends AppCompatActivity {
             }
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent intent = new Intent(WelcomeActivity.this, GuideActivity.class);
-                startActivity(intent);
+                boolean isStartMain =  CacheUtils.getBoolean(WelcomeActivity.this,"start_main");
+                if(isStartMain){
+                    Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(WelcomeActivity.this,GuideActivity.class);
+                    startActivity(intent);
+                }
                 finish();
             }
             @Override
