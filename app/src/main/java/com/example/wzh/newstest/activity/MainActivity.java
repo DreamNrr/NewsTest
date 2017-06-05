@@ -1,7 +1,9 @@
-package com.example.wzh.newstest;
+package com.example.wzh.newstest.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.wzh.newstest.R;
 
 public class MainActivity extends AppCompatActivity {
 
