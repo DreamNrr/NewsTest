@@ -46,27 +46,51 @@ public class GuideActivity extends AppCompatActivity {
             imageViews.add(imageView);
         }
         vp.setAdapter(new MyPagerAdapter());
+        vp.addOnPageChangeListener(new MyOnPageChangeListener());
 
     }
-    class MyPagerAdapter extends PagerAdapter{
+    class MyOnPageChangeListener implements ViewPager.OnPageChangeListener{
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+        }
+        //选中某个页面是回调
+        @Override
+        public void onPageSelected(int position) {
+            if (position == imageViews.size() - 1) {
+                //最后一个页面就显示
+                btnStartMain.setVisibility(View.VISIBLE);
+            } else {
+                //其他页面隐藏
+                btnStartMain.setVisibility(View.GONE);
+            }
+        }
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    }
+
+
+
+
+
+
+    class MyPagerAdapter extends PagerAdapter{
         @Override
         public int getCount() {
             return imageViews.size();
         }
-
         @Override
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
         }
-
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             ImageView imageView = imageViews.get(position);
             container.addView(imageView);
             return imageView;
         }
-
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((View) object);
