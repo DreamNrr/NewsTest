@@ -1,8 +1,8 @@
 package com.example.wzh.newstest;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -10,7 +10,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
-import com.example.wzh.newstest.activity.MainActivity;
+import com.example.wzh.newstest.activity.GuideActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -44,14 +44,12 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onAnimationStart(Animation animation) {
 
             }
-
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, GuideActivity.class);
                 startActivity(intent);
                 finish();
             }
-
             @Override
             public void onAnimationRepeat(Animation animation) {
 
